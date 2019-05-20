@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'user',
+    'oauth',
 ]
 
 MIDDLEWARE = [
@@ -98,8 +99,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql', # 数据库引擎
         'HOST': '127.0.0.1', # 数据库主机
         'PORT': 3306, # 数据库端口
-        'USER': 'itcast', # 数据库用户名
-        'PASSWORD': '123456', # 数据库用户密码
+        'USER': 'root', # 数据库用户名
+        'PASSWORD': 'mysql', # 数据库用户密码
         'NAME': 'meiduo_mall' # 数据库名字
     },
 }
@@ -211,4 +212,12 @@ LOGGING = {
     }
 }
 
+# 重写Django自带的模型类(继承的自带模型类AbstractUser)
 AUTH_USER_MODEL = 'user.User'
+
+
+# 重写用户登陆认证方法
+AUTHENTICATION_BACKENDS = ['user.utils.UsernameMobileAuthBackend']
+
+# 未登陆用户访问用户中心返回路径
+LOGIN_URL = '/login/'
