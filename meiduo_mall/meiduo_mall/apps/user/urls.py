@@ -9,5 +9,10 @@ urlpatterns = [
     url(r'^login/$', views.LoginView.as_view(),name='login'),
     url(r'^logout/$', views.LogoutView.as_view(), name='logout'),
     url(r'^info/$', views.UserInfoView.as_view(), name='info'),
+    url(r'^qq/authorization/$', views.QQURLView.as_view()),
+    url(r'^oauth_callback/$', views.QQUserView.as_view()),
+    url(r'^emails/$', views.EmailView.as_view()),
+    # 验证邮箱
+    url(r'^emails/verification/$', views.VerifyEmailView.as_view()),
 
 ]

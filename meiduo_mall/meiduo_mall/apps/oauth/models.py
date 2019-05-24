@@ -1,10 +1,13 @@
 from django.db import models
 
 # Create your models here.
-from django.db import models
-from meiduo_mall.utils. BaseModel import BaseModel
+# from django.db import models
+
 
 # 定义QQ登录的模型类:
+from meiduo_mall.utils.models import BaseModel
+
+
 class OAuthQQUser(BaseModel):
     """QQ登录用户数据"""
     user = models.ForeignKey('user.User', on_delete=models.CASCADE, verbose_name='用户')
